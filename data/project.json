@@ -1,0 +1,20 @@
+[
+  {
+    "id": "p001",
+    "title": "kavecon",
+    "category": "design",
+    "skill": ["UI/UX design", "Branding", "Figma"],
+    "description": "KAVECON is a live streaming website based in South Korea that provides live streaming services, especially for K-pop concerts. This project started due to the need for renewal. They have made several changes to the functions since the beginning, and some UX and UI designs were not fitting at the start.",
+    "image": "/workList/kavecon.png",
+    "details": true
+  },
+  {
+    "id": "p002",
+    "title": "cosmos, a walk through the cosmos",
+    "category": "design",
+    "skill": ["Graphic design", "Exhibition design", "Abode creative suite"],
+    "description": "KAVECON is a live streaming website based in South Korea that provides live streaming services, especially for K-pop concerts. This project started due to the need for renewal. They have made several changes to the functions since the beginning, and some UX and UI designs were not fitting at the start.",
+    "image": "/workList/cosmos.png",
+    "details": false
+  }
+]
