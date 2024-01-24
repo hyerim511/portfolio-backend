@@ -39,7 +39,7 @@ const app = express();
 
 app.get("/", (req, res) => {
   // res.send("test");
-  fs.readFile("./customer.json", "utf8", (err, jsonString) => {
+  fs.readFile("./data/project.json", "utf8", (err, jsonString) => {
     if (err) {
       console.log("File read failed:", err);
       return;
