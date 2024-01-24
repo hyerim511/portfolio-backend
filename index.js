@@ -43,7 +43,8 @@ const app = express();
 app.get("/", (req, res) => {
   try {
     const projects = fs.readFile("./data/project.json", "utf8");
-    res.json(JSON.parse(projects));
+    const data = res.json(JSON.parse(projects));
+    res.send(data);
   } catch(error) {
     console.log(error);
     res.send("error!");
