@@ -1,9 +1,9 @@
-// import fs from "node:fs/promises";
+import fs from "node:fs/promises";
 
-// import bodyParser from "body-parser";
-// import express from "express";
+import bodyParser from "body-parser";
+import express from "express";
 
-// const app = express();
+const app = express();
 
 // app.use(bodyParser.json());
 // app.use(express.static("public"));
@@ -30,8 +30,10 @@
 
 // app.listen(3000);
 
-const app = require("express")();
-const { v4 } = require("uuid");
+
+
+// const app = require("express")();
+// const { v4 } = require("uuid");
 
 app.get("/api", (req, res) => {
   const path = `/api/item/${v4()}`;
