@@ -31,19 +31,21 @@
 // app.listen(3000);
 
 const express = require("express");
-// const fs = require('fs');
+const fs = require('fs');
 // const bodyParser = require("body-parser");
 // const fs = require("node:fs/promises");
-
-const jsonData = require('./data/project.json');
 
 const app = express();
 
 app.get("/", (req, res) => {
-  // const projects = fs.readFile("./data/project.json", "utf8");
-  const projects = JSON.parse(jsonData);
-  res.json(JSON.stringify(projects));
-  // res.send(projects);
+  // res.send("test");
+  fs.readFile("./customer.json", "utf8", (err, jsonString) => {
+    if (err) {
+      console.log("File read failed:", err);
+      return;
+    }
+    console.log("File data:", jsonString);
+  });
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
