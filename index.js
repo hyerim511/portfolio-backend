@@ -31,6 +31,12 @@
 // app.listen(3000);
 
 const express = require("express");
+const bodyParser = require("body-parser");
+const fs = require("node:fs/promises");
+
+app.use(bodyParser.json());
+app.use(express.static("public"));
+
 const app = express();
 app.get("/", (req, res) => {
   const projects = fs.readFile("./data/project.json", "utf8");
@@ -42,4 +48,4 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-module.exports = app; 
+module.exports = app;
