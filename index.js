@@ -1,4 +1,4 @@
-import fs from "node:fs/promises";
+// import fs from "node:fs/promises";
 
 // import bodyParser from "body-parser";
 // import express from "express";
@@ -31,17 +31,18 @@ import fs from "node:fs/promises";
 // app.listen(3000);
 
 const express = require("express");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 // const fs = require("node:fs/promises");
 
-app.use(bodyParser.json());
-app.use(express.static("public"));
-
 const app = express();
+
+// app.use(bodyParser.json());
+// app.use(express.static("public"));
+
 app.get("/", (req, res) => {
-  const projects = fs.readFile("./data/project.json", "utf8");
-  res.json(JSON.parse(projects));
-  // res.send(data);
+  // const projects = fs.readFile("./data/project.json", "utf8");
+  // res.json(JSON.parse(projects));
+  res.send(test);
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
