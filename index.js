@@ -42,8 +42,13 @@ const app = express();
 // });
 
 app.get("/", async (req, res) => {
-  const projects = await fs.readFile("./data/project.json", "utf8");
-  res.json(JSON.parse(projects));
+  try {
+    const projects = await fs.readFile("./data/project.json", "utf8");
+    res.json(JSON.parse(projects));
+  } catch(error) {
+    console.log(error);
+    res.send("error!");
+  }
 });
 
 const PORT = process.env.PORT || 5000;
