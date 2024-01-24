@@ -33,9 +33,9 @@
 const express = require("express");
 const app = express();
 app.get("/", async (req, res) => {
-  // res.send("Express on Vercel");
   const projects = await fs.readFile("./data/project.json", "utf8");
-  res.json(JSON.parse(projects));
+  const data = res.json(JSON.parse(projects));
+  res.send(data);
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
