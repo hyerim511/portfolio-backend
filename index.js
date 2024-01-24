@@ -39,11 +39,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  next();
 });
 
 app.get("/", (req, res) => {
