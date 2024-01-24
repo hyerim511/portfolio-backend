@@ -15,7 +15,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", async (req, res) => {
+app.get("/api", async (req, res) => {
   const projects = await fs.readFile("./data/project.json", "utf8");
   res.json(JSON.parse(projects));
 });
