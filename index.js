@@ -42,8 +42,8 @@ const app = express();
 app.get("/", (req, res) => {
   // const projects = fs.readFile("./data/project.json", "utf8");
   const projects = JSON.parse(jsonData);
-  // res.json(JSON.parse(projects));
-  res.send(projects);
+  res.json(JSON.stringify(projects));
+  // res.send(projects);
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
