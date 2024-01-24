@@ -38,9 +38,9 @@ const fs = require('fs');
 const app = express();
 
 app.get("/", (req, res) => {
-  const projects = fs.readFile("./data/project.json", "utf8");
+  fs.readFile("./data/project.json", "utf8").then((data)=>res.send(JSON.parse(data)))
   // res.json(JSON.parse(projects));
-  res.send(JSON.parse(projects));
+  
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
