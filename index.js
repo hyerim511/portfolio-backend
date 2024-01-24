@@ -1,4 +1,4 @@
-// import fs from "node:fs/promises";
+import fs from "node:fs/promises";
 
 // import bodyParser from "body-parser";
 // import express from "express";
@@ -32,7 +32,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-const fs = require("node:fs/promises");
+// const fs = require("node:fs/promises");
 
 app.use(bodyParser.json());
 app.use(express.static("public"));
