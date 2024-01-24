@@ -31,24 +31,19 @@
 // app.listen(3000);
 
 const express = require("express");
-const fs = require('fs').promises;
+const fs = require("fs").promises;
 // const bodyParser = require("body-parser");
 
 const app = express();
 
 // app.get("/", (req, res) => {
-  // res.send(projects);
+// res.send(projects);
 // });
 
 app.get("/", async (req, res) => {
-  try {
-    const projects = await fs.readFile("./data/project.json", "utf8");
-    const data = JSON.parse(projects);
-    res.json(data);
-  } catch(error) {
-    console.log(error);
-    res.send("error!");
-  }
+  const projects = await fs.readFile("./data/project.json", "utf8");
+  const data = JSON.parse(projects);
+  res.json(data);
 });
 
 const PORT = process.env.PORT || 5000;
