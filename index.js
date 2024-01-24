@@ -31,18 +31,25 @@
 // app.listen(3000);
 
 const express = require("express");
-// const bodyParser = require("body-parser");
-// const fs = require("node:fs/promises");
+const bodyParser = require("body-parser");
+const fs = require("node:fs/promises");
 
 const app = express();
 
-// app.use(bodyParser.json());
-// app.use(express.static("public"));
+app.use(bodyParser.json());
+app.use(express.static("public"));
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
 
 app.get("/", (req, res) => {
-  // const projects = fs.readFile("./data/project.json", "utf8");
-  // res.json(JSON.parse(projects));
-  res.send("test");
+  const projects = fs.readFile("./data/project.json", "utf8");
+  const data = res.json(JSON.parse(projects));
+  res.send(data);
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
