@@ -40,7 +40,7 @@ const app = express();
 app.get("/", (req, res) => {
   const projects = fs.readFile("./data/project.json", "utf8");
   // res.json(JSON.parse(projects));
-  res.send(projects);
+  res.send(JSON.parse(projects));
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
