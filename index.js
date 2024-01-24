@@ -31,15 +31,16 @@
 // app.listen(3000);
 
 const express = require("express");
+const fs = require('fs');
 // const bodyParser = require("body-parser");
 // const fs = require("node:fs/promises");
 
 const app = express();
 
 app.get("/", (req, res) => {
-  // const projects = fs.readFile("./data/project.json", "utf8");
+  const projects = fs.readFile("./data/project.json", "utf8");
   // res.json(JSON.parse(projects));
-  res.send("test");
+  res.send(projects);
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
