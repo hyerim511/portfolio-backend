@@ -32,8 +32,8 @@
 
 const express = require("express");
 const app = express();
-app.get("/", async (req, res) => {
-  const projects = await fs.readFile("./data/project.json", "utf8");
+app.get("/", (req, res) => {
+  const projects = fs.readFile("./data/project.json", "utf8");
   const data = res.json(JSON.parse(projects));
   res.send(data);
 });
