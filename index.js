@@ -33,7 +33,6 @@
 const express = require("express");
 const fs = require('fs');
 // const bodyParser = require("body-parser");
-// const fs = require("node:fs/promises");
 
 const app = express();
 
@@ -41,9 +40,9 @@ const app = express();
   // res.send(projects);
 // });
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
   try {
-    const projects = await fs.readFile("./data/project.json", "utf8");
+    const projects = fs.readFile("./data/project.json", "utf8");
     res.json(JSON.parse(projects));
   } catch(error) {
     console.log(error);
