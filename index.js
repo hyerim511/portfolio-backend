@@ -37,16 +37,15 @@ const fs = require('fs');
 
 const app = express();
 
-app.get("/", (req, res) => {
-  // res.send("test");
-  fs.readFile("./data/project.json", "utf8", (err, jsonString) => {
-    if (err) {
-      console.log("File read failed:", err);
-      return;
-    }
-    console.log("File data:", jsonString);
-  });
+// app.get("/", (req, res) => {
+  // res.send(projects);
+// });
+
+app.get("/", async (req, res) => {
+  const projects = await fs.readFile("./data/project.json", "utf8");
+  res.json(JSON.parse(projects));
 });
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
